@@ -15,6 +15,8 @@
 #             ->  cd myproject [ command to change directory ]
 #             -> python manage.py runserver  [ command to run server ]
 
-# Ctrl + c to stop the server
+# viii) Ctrl + c to stop the server
+
+# ix) Create App: python -m django startapp appName
 
 # enter deactivate command to close venv
