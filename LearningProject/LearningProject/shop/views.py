@@ -1,8 +1,4 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
-def home(request):
-    return HttpResponse('Welcome to shop home')
-
-def products(request):
-    return HttpResponse('Welcome to shop products')
-
+def items_list(request):
+    return render(request, 'shop/item_list.html')
