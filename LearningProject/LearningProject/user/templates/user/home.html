@@ -1,11 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#1 Template Basic</title>
+  </head>
+  <body>
+    <h1>Template Basic</h1>
+    {% comment %} This is how comment should be done in django {% endcomment %}
+    <p>Name: {{name}}</p>
+
+    {% comment %} Access List {% endcomment %}
+    <p>Skills: {{skills}}</p>
+    <p>First Skills: {{skills.0}}</p>
+
+    {% comment %} Access Obj Attributes {% endcomment %}
+    <p>User Name: {{user.name}}</p>
+    <p>User Age: {{user.age}}</p>
+
+  </body>
 </html>

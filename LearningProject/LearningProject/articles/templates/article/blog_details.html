@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#2 Template Filters | Text, Numbers, Date</title>
+  </head>
+  <body>
+    <h1>Articles filter page</h1>
+    {% comment %} This is how comment should be done in django {% endcomment %}
+    {% comment %} Text filter {% endcomment %}
+    <p>
+      <b>Title (Normal): {{post.title}}</b>
+    </p>
+    <p>
+      <b>Title (Uppercase): {{post.title | upper}}</b>
+    </p>
+    <p>
+      <b>Title (Lowercase): {{post.title | lower}}</b>
+    </p>
+    <p>
+      <b>Title (Capital): {{post.title | capfirst}}</b>
+    </p>
+    <p>
+      <b>Title (Title Case): {{post.title | title}}</b>
+    </p>
+    <p>
+      <b>Truncate Character: {{post.title | truncatechars:10}}</b>
+    </p>
+    <p>
+      <b>Truncate Word: {{post.title | truncatewords:1}}</b>
+    </p>
+    <p>
+      <b>Line Break: {{post.title | linebreaks}}</b>
+    </p>
+
+    <hr />
+
+    {% comment %} number filters {% endcomment %}
+    <p>
+      <b>Price: {{post.price}}</b>
+    </p>
+    <p>
+      <b>Addition Price: {{post.price | add:5}}</b>
+    </p>
+
+    {% if post.number|divisibleby:2 %}
+    <p>{{post.number}} is Even</p>
+    {% else %}
+    <p>{{post.number}} is Odd</p>
+
+    {% endif %} {% comment %} list filters {% endcomment %}
+    <p><b>Tags: {{post.tags}}</b></p>
+    <p><b>First Tag: {{post.tags|first}}</b></p>
+    <p><b>Last Tag: {{post.tags|last}}</b></p>
+    <p><b>Tag Length: {{post.tags|length}}</b></p>
+    <p><b>Slice (first 2): {{post.tags|slice:':2'}}</b></p>
+    <p><b>Join Tag: {{post.tags|join:', '}}</b></p>
+
+    <hr />
+
+    <p>Author Available?: {{post.author|yesno:'Yes,No,MayBe'}}</p>
+    <p>Comments?: {{post.comments}} comment{{post.comments|pluralize}}</p>
+
+    {% comment %} Date and time filter {% endcomment %}
+    <p>Date: {{post.date}}</p>
+    <p>Formatted Date: {{post.date|date:'D d M Y'}}</p>
+    <p>Time: {{post.date|time:'H:i'}}</p>
+
+    {% comment %} Encoding & Formatting {% endcomment %}
+    <p>Encoded Title: {{post.title|urlencode}}</p>
+    <p>Float Format: {{123.4567|floatformat:2}}</p>
+  </body>
+</html>
