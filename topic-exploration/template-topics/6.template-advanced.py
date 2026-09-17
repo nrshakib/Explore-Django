@@ -12,12 +12,6 @@
 
 
 
-# {% autoescape %}: Controls automatic HTML escaping.
-
-# {% autoescape off %}
-#     {{ html_content }}
-# {% endautoescape %}
-
 
 # {% verbatim %}: Prevents Django from interpreting template syntax.
 

@@ -13,16 +13,10 @@
 # <!DOCTYPE html>
 # <html>
 # <head>
-#     <title>
-#         {% block title %}
-#             My Website
-#         {% endblock %}
-#     </title>
+#     <title> {% block title %} My Website {% endblock %} </title>
 # </head>
 # <body>
-#     <nav>
-#         My Navbar
-#     </nav>
+#     <nav> My Navbar </nav>
 #     {% block content %}
 #     {% endblock %}
 # </body>
@@ -69,13 +63,11 @@
 # {% with %}: Creates a temporary variable.
 
 # Instead of:
-
 # {{ user.profile.full_name }}
 # {{ user.profile.full_name }}
 # {{ user.profile.full_name }}
 
 # Use:
-
 # {% with name=user.profile.full_name %}
 #     <h1>{{ name }}</h1>
 #     <p>{{ name }}</p>
@@ -83,16 +75,13 @@
 
 
 # URL Handling: Used when working with Django's URL system.
-
 # {% url %}: Generates a URL using the URL's name.
 
 # urls.py:
 # path("about/", views.about, name="about") [ focus the name attribute ]
 
 # Template:
-# <a href="{% url 'about' %}"> [ the name attribute is used here ]
-#     About
-# </a>
+# <a href="{% url 'about' %}"> About </a>   [ the name attribute is used here ]
 
 
 # URL with Parameters

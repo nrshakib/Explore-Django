@@ -31,7 +31,7 @@
 # {{ description|wordcount }}
 
 # cut: Removes a specific character.
-# {{ name|cut:" " }}
+# {{ name|cut:" " }}  [ removes space ]
 
 
 
@@ -67,8 +67,7 @@
 # {{ skills|join:", " }}  [ item inside quotes "" indicate which should separate the values]
 
 # Example:
-# ["Python", "Django", "React"]
-# Output: Python, Django, React
+# ["Python", "Django", "React"]   [ Output: Python, Django, React ]
 
 # slice: Slices a list.
 # {{ users|slice:":3" }}  [ Returns the first 3 items. ]
@@ -96,9 +95,12 @@
 # {{ date|date:"Y-m-d" }} [Example: 2026-09-17]
 
 # Common formats:
-# {{ date|date:"d/m/Y" }}
-# {{ date|date:"M d, Y" }}
-# {{ date|date:"F j, Y" }}
+# "Y-m-d" → 2026-01-29
+# "m/d/Y" → 01/29/2026
+# "d M Y" → 29 Jan 2026"
+# F j, Y" → January 29, 2026
+# "Y-m-d H:i" → 2026-01-29 16:30 (24-hour time)
+# "f a" → 4:30 p.m.
 
 # time: Formats a time.
 # {{ time|time:"H:i" }}
@@ -114,12 +116,16 @@
 
 # HTML & Text Processing Filters
 
-# safe: Prevents Django from escaping HTML.
-# {{ html_content|safe }}
+# safe: Prevents Django from escaping HTML:  {{ html_content|safe }}
+# {% autoescape %}: Controls automatic HTML escaping.
 
 # For example: html_content = "<strong>Hello</strong>"
 # Without safe: <strong>Hello</strong>
 # With safe: Hello (in bold)
+
+# {% autoescape off %}
+#     {{ html_content }}  [ Output: <strong>Hello</strong> ]
+# {% endautoescape %}
 
 
 # striptags: Removes HTML tags.
@@ -136,10 +142,26 @@
 # Others
 
 # urlencode: Encodes a value for use in a URL.
-# <a href="/search/?q={{ query|urlencode }}">
-#     Search
-# </a>
+# <a href="/search/?q={{ query|urlencode }}"> Search </a>
+# if query is Find best doctors, it will be encoded to Find%20best%20doctors
 
 
 # yesno: Converts Boolean values to custom text.
-# {{ is_active|yesno:"Active,Inactive" }}
+# {{ is_active|yesno:"Active,Inactive" }}  [ display custom text based on yes or no value ]
+
+
+# pluralization
+# pluralize is used when you want a word to automatically become plural based on a number.
+
+# Syntax:
+# {{ number }} {{ "word"|pluralize }}
+
+# More commonly, you use it directly with a variable: {{ count }} item{{ count|pluralize }}
+
+# Example
+# Template: {{ count }} item{{ count|pluralize }}
+
+# If: count = 1
+# Output: 1 item
+# If: count = 5
+# Output: 5 items
