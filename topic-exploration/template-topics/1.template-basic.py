@@ -24,7 +24,7 @@
 # ]
 
 # {{ users.0 }}
-# {{ users.1 }}
+# {{ users.1.name }}
 
 
 # Template Comments
@@ -35,6 +35,6 @@
 # multiline comment
 
 #->    {% comment %}
-#     This is a comment.
-#     It will not be rendered.
-# {% endcomment %}
+#        This is a comment.
+#        It will not be rendered.
+#       {% endcomment %}
