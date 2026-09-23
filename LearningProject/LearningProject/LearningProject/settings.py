@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'user',
     'articles',
     "books",
-    "contact"
+    "contact",
+    "fileupload",
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,6 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
